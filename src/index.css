@@ -1,0 +1,105 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  /* Custom GOV.BR font */
+  @font-face {
+    font-family: 'Rawline';
+    src: url('https://cdn.jsdelivr.net/gh/dundee/fonts@main/raw/rawline-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Rawline';
+    src: url('https://cdn.jsdelivr.net/gh/dundee/fonts@main/raw/rawline-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-govBlue text-foreground font-rawline;
+  }
+}
+
+@layer components {
+  .gov-button {
+    @apply bg-govBlue text-white font-bold py-3 px-8 rounded-md hover:bg-govDarkBlue transition-colors duration-200 uppercase text-sm tracking-wider shadow-md;
+  }
+  
+  .gov-button-success {
+    @apply bg-govGreen text-white font-bold py-3 px-8 rounded-md hover:brightness-110 transition-colors duration-200 uppercase text-sm tracking-wider shadow-md;
+  }
+  
+  .gov-button-secondary {
+    @apply bg-white text-govBlue border border-govBlue font-bold py-3 px-8 rounded-md hover:bg-govGray transition-colors duration-200 uppercase text-sm tracking-wider shadow-md;
+  }
+  
+  .gov-input {
+    @apply w-full border border-govDarkGray rounded px-4 py-3 text-govDarkBlue focus:outline-none focus:ring-2 focus:ring-govBlue;
+  }
+  
+  .gov-container {
+    @apply max-w-md mx-auto bg-white rounded-lg p-6 shadow-lg;
+  }
+  
+  .countdown-circle {
+    @apply w-20 h-20 transform -rotate-90;
+  }
+  
+  .countdown-circle-bg {
+    @apply stroke-gray-200 fill-none stroke-[10] w-full h-full;
+  }
+  
+  .countdown-circle-progress {
+    @apply stroke-govBlue fill-none stroke-[10] w-full h-full animate-countdown;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+  }
+  
+  .loading-spinner {
+    @apply w-8 h-8 border-4 border-govBlue border-t-transparent rounded-full animate-spin;
+  }
+}
